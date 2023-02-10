@@ -9,6 +9,7 @@ public class Main {
         Connection conn = db.connect_to_db("postgres","postgres","12345678");
         //db.createTable(conn, "consumer ");
 //        db.insert_row(conn, "employee", "Nurkhat", "Kazakhstan");
+        db.update_name(conn, "employee", "Nurkhat", "Zhenis");
         db.read_data(conn, "employee");
     }
 }
