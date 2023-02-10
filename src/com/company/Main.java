@@ -7,9 +7,9 @@ public class Main {
     public static void main(String[] args) {
         DbFunciton db = new DbFunciton();
         Connection conn = db.connect_to_db("postgres","postgres","12345678");
-        //db.createTable(conn, "consumer ");
-//        db.insert_row(conn, "employee", "Nurkhat", "Kazakhstan");
-        db.update_name(conn, "employee", "Nurkhat", "Zhenis");
-        db.read_data(conn, "employee");
+//        db.createTable(conn, "consumer ");
+        db.insert_row(conn, "consumer", "Nurkhat", "nkwt", "nktwn@gmail.com", "050509551608", "123456789" );
+//        db.update_name(conn, "employee", "Nurkhat", "Zhenis");
+        db.read_data(conn, "consumer");
     }
 }

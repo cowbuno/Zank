@@ -25,7 +25,7 @@ public class DbFunciton {
     public void createTable(Connection conn, String table_name){
         Statement statement;
         try {
-            String query = "create table " + table_name + "(empid SERIAL, name varchar(200), address varchar(200), primary key(empid));";
+            String query = "create table " + table_name + "(empid SERIAL, name varchar(20), surname varchar(20), email varchar(30) ,IIN varchar(12), password varchar(20), primary key(empid));";
             statement = conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Table created");
@@ -33,10 +33,10 @@ public class DbFunciton {
             System.out.println(e);
         }
     }
-    public void insert_row(Connection conn,String table_name,String name, String address){
+    public void insert_row(Connection conn,String table_name, String name, String surname, String email, String IIN, String password){
         Statement statement;
         try {
-            String query=String.format("insert into %s(name,address) values('%s','%s');",table_name,name,address);
+            String query=String.format("insert into %s(name, surname, email, IIN, password) values('%s','%s','%s','%s','%s');",table_name, name, surname, email, IIN, password);
             statement=conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Row Inserted");
@@ -53,9 +53,11 @@ public class DbFunciton {
             statement = conn.createStatement();
             rs = statement.executeQuery(query);
             while(rs.next()){
-                System.out.print(rs.getString("empid") + " ");
                 System.out.print(rs.getString("name") + " ");
-                System.out.println(rs.getString("address") + " ");
+                System.out.print(rs.getString("surname") + " ");
+                System.out.print(rs.getString("email") + " ");
+                System.out.println(rs.getString("IIN") + " ");
+
             }
         }catch (Exception e){
             System.out.println(e);
