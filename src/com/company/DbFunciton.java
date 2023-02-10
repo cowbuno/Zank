@@ -64,6 +64,21 @@ public class DbFunciton {
         }
     }
 
+    public static boolean checkAccount(Connection conn, String table_name, String name, String password){
+        try {
+            String query = String.format("select * from %s where name='%s' and password='%s'", table_name, name, password);
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+
+            if (rs.next()) {
+                return true;
+            }
+        }catch (Exception e){
+            System.out.println(e);
+        }
+        return false;
+    }
+
     public void update_name(Connection conn, String table_name, String old_name, String new_name){
         Statement statement;
         try {
