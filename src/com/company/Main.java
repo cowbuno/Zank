@@ -8,6 +8,7 @@ public class Main {
         DbFunciton db = new DbFunciton();
         Connection conn = db.connect_to_db("postgres","postgres","12345678");
         //db.createTable(conn, "consumer ");
-        db.insert_row(conn, "employee", "abhishek", "india");
+//        db.insert_row(conn, "employee", "Nurkhat", "Kazakhstan");
+        db.read_data(conn, "employee");
     }
 }

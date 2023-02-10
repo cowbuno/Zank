@@ -3,6 +3,7 @@ import javax.swing.plaf.nimbus.State;
 import java.security.spec.ECField;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DbFunciton {
@@ -39,6 +40,23 @@ public class DbFunciton {
             statement=conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Row Inserted");
+        }catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    public void read_data(Connection conn, String table_name){
+        Statement statement;
+        ResultSet rs = null;
+        try {
+            String query = String.format("select * from %s", table_name);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while(rs.next()){
+                System.out.print(rs.getString("empid") + " ");
+                System.out.print(rs.getString("name") + " ");
+                System.out.println(rs.getString("address") + " ");
+            }
         }catch (Exception e){
             System.out.println(e);
         }
