@@ -16,9 +16,9 @@ public class userRegistration {
         String surname = scan.next();
         System.out.print("Your email:");
         String email = scan.next();
-        System.out.print("Your IIN");
+        System.out.print("Your IIN: ");
         String IIN = scan.next();
-        System.out.print("Your password");
+        System.out.print("Your password: ");
         String password = scan.next();
 
 
