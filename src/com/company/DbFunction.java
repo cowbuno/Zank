@@ -64,9 +64,9 @@ public class DbFunction {
         }
     }
 
-    public static boolean checkAccount(Connection conn, String table_name, String name, String password) {
+    public static boolean checkAccount(Connection conn, String table_name, String email, String password) {
         try {
-            String query = String.format("select * from %s where name='%s' and password='%s'", table_name, name, password);
+            String query = String.format("select * from %s where email='%s' and password='%s'", table_name, email, password);
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery(query);
 

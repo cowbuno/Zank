@@ -13,6 +13,7 @@ public class Main {
 //        db.read_data(conn, "consumer");
 //        System.out.println(db.checkAccount(conn,"consumer", "Zhenis", "123456789"));
         userRegistration reg = new userRegistration();
-        reg.register();
+//        reg.register();
+        reg.login();
     }
 }
