@@ -1,12 +1,10 @@
 package com.company;
-import javax.swing.plaf.nimbus.State;
-import java.security.spec.ECField;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DbFunciton {
+public class DbFunction {
     public Connection connect_to_db(String dbname, String user, String pass) {
         Connection conn = null;
         try {

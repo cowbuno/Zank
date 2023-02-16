@@ -1,11 +1,11 @@
 package com.company;
 
-        import java.sql.Connection;
-        import java.util.Scanner;
+import java.sql.Connection;
+import java.util.Scanner;
 
 public class userRegistration {
     static Scanner scan = new Scanner(System.in);
-    static DbFunciton db = new DbFunciton();
+    static DbFunction db = new DbFunction();
     static Connection conn=db.connect_to_db("postgres","postgres","shisuimykty1006");
     public static void register(){
         System.out.print("\nREGISTRATION FORM:\n");
