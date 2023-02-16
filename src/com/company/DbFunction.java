@@ -33,7 +33,7 @@ public class DbFunction {
         }
     }
 
-    public void insert_row(Connection conn, String table_name, String name, String surname, String email, String IIN, String password) {
+    public static void insert_row(Connection conn, String table_name, String name, String surname, String email, String IIN, String password) {
         Statement statement;
         try {
             String query = String.format("insert into %s(name, surname, email, IIN, password) values('%s','%s','%s','%s','%s');", table_name, name, surname, email, IIN, password);

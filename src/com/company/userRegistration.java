@@ -6,18 +6,22 @@ import java.util.Scanner;
 public class userRegistration {
     static Scanner scan = new Scanner(System.in);
     static DbFunction db = new DbFunction();
-    static Connection conn=db.connect_to_db("postgres","postgres","shisuimykty1006");
+    static Connection conn=db.connect_to_db("postgres","postgres","12345678");
     public static void register(){
         System.out.print("\nREGISTRATION FORM:\n");
         System.out.print("Your Name:");
         String name = scan.next();
         System.out.print("Your Surname:");
         String surname = scan.next();
-        System.out.print("Create password:");
-        int password = scan.nextInt();
-        System.out.print("How much money do you have?:");
-        int cash = scan.nextInt();
-        Dbfunctions.register(conn,"person",name,surname,password,cash);
+        System.out.print("Your email:");
+        String email = scan.next();
+        System.out.print("Your IIN");
+        String IIN = scan.next();
+        System.out.print("Your password");
+        String password = scan.next();
+
+
+        DbFunction.insert_row(conn,"consumer", name,surname, email, IIN ,password);
     }
 
     public static boolean checkLogin(){
