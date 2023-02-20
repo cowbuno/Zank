@@ -20,8 +20,8 @@ public class aviaTickets {
         System.out.println("5.Shymkent - Almaty");
         System.out.println("6.Shymkent - Astana");
 
-        int number = scan.nextInt();
-
+        int _case = scan.nextInt();
+        choose_Time(_case);
 
     }
 

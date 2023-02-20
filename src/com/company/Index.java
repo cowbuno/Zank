@@ -8,6 +8,7 @@ public class Index {
     static DbFunction db = new DbFunction();
     static Connection conn=db.connect_to_db("postgres","postgres","12345678");
     static Profile profile = new Profile();
+    static aviaTickets avia = new aviaTickets();
 
 
     public static void indexPage(String email, String password){
@@ -22,7 +23,7 @@ public class Index {
             profile.profilePage(email, password);
         }
         else if(choose==2){
-
+            aviaTickets.chooseCities();
         }
         else if(choose==3){
             System.out.println("See you soon!");
