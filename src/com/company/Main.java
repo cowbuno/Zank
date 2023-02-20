@@ -13,8 +13,8 @@ public class Main {
 //        db.createTable(conn, "consumer ");
 //        db.insert_row(conn, "consumer", "Nurkhat", "nkwt", "nktwn@gmail.com", "050509551608", "123456789" );
 //        db.update_name(conn, "consumer", "Nurkhat", "Zhenis");
-//        db.read_data(conn, "consumer");
-//        System.out.println(db.checkAccount(conn,"consumer", "Zhenis", "123456789"));
+
+/*        System.out.println(db.checkAccount(conn,"consumer", "Zhenis", "123456789"));*/
 
         System.out.println("Hello! It's Zan avia company!");
         System.out.println("Do you have account?");

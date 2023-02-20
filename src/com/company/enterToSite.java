@@ -27,6 +27,7 @@ public class enterToSite {
     }
 
     public static void login() {
+        Index ind=new Index();
         System.out.print("\nLOGIN FORM:\n");
         System.out.print("Your email:");
         String email = scan.next();
@@ -34,7 +35,7 @@ public class enterToSite {
         String password = scan.next();
         if(db.checkAccount(conn, "consumer", email, password) == true){
             System.out.println("Successful log in ");
-//          Должна вызываться функция users что-то там
+            ind.indexPage();
 
         } else {
             againLoginig();
@@ -46,8 +47,8 @@ public class enterToSite {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Password or Email is wrong");
-        System.out.println("1) Please log in again");
-        System.out.println("2) If you don't have account, register");
+        System.out.println("1) If you don't have account, register");
+        System.out.println("2) Please log in again");
 
         int number = scan.nextInt();
         scan.nextLine();
