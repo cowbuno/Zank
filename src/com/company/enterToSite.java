@@ -35,7 +35,7 @@ public class enterToSite {
         String password = scan.next();
         if(db.checkAccount(conn, "consumer", email, password) == true){
             System.out.println("Successful log in ");
-            ind.indexPage();
+            ind.indexPage(email,password);
 
         } else {
             againLoginig();
