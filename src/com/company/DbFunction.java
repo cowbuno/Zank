@@ -44,24 +44,6 @@ public class DbFunction {
         }
     }
 
-    public void read_data(Connection conn, String table_name) {
-        Statement statement;
-        ResultSet rs = null;
-        try {
-            String query = String.format("select * from %s", table_name);
-            statement = conn.createStatement();
-            rs = statement.executeQuery(query);
-            while (rs.next()) {
-                System.out.print(rs.getString("name") + " ");
-                System.out.print(rs.getString("surname") + " ");
-                System.out.print(rs.getString("email") + " ");
-                System.out.println(rs.getString("IIN") + " ");
-
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
 
     public static boolean checkAccount(Connection conn, String table_name, String email, String password) {
         try {
@@ -76,6 +58,24 @@ public class DbFunction {
             System.out.println(e);
         }
         return false;
+    }
+
+    public static void userInfo(Connection conn, String table_name, String email,  String password) {
+        Statement statement;
+        ResultSet rs;
+        try {
+            String query = String.format("select * from %s where email = '%s' and password= '%s'", table_name, email, password);
+            statement = conn.createStatement();
+            rs = statement.executeQuery(query);
+            while (rs.next()) {
+                System.out.println(" | Surname: " + rs.getString("surname"));
+                System.out.println(" | Name: " + rs.getString("name"));
+                System.out.println(" | IUN: " + rs.getString("iin"));
+                System.out.println(" | E-mail: " + rs.getString("email"));
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public void update_name(Connection conn, String table_name, String old_name, String new_name) {

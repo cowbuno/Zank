@@ -4,10 +4,13 @@ import java.sql.Connection;
 import java.util.Scanner;
 
 public class Index {
-    public static void indexPage(){
-        Scanner scan = new Scanner(System.in);
-        DbFunction db = new DbFunction();
-        Connection conn=db.connect_to_db("postgres","postgres","12345678");
+    static Scanner scan = new Scanner(System.in);
+    static DbFunction db = new DbFunction();
+    static Connection conn=db.connect_to_db("postgres","postgres","12345678");
+    static Profile profile = new Profile();
+
+
+    public static void indexPage(String email, String password){
 
         System.out.println("Choose an option:");
         System.out.println("1.Profile");
@@ -16,7 +19,7 @@ public class Index {
 
         int choose = scan.nextInt();
         if (choose==1){
-
+            profile.profilePage(email, password);
         }
         else if(choose==2){
 
@@ -26,7 +29,7 @@ public class Index {
         }
         else{
             System.out.println("Please Enter again");
-            indexPage();
+            indexPage(email, password);
         }
 
     }
