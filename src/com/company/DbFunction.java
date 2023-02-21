@@ -78,10 +78,21 @@ public class DbFunction {
         }
     }
 
-    public void update_name(Connection conn, String table_name, String old_name, String new_name) {
+    public void update_email(Connection conn, String table_name, String new_email, String old_email) {
         Statement statement;
         try {
-            String query = String.format("update %s set name='%s' where name = '%s'", table_name, new_name, old_name);
+            String query = String.format("update %s set email='%s' where email = '%s'", table_name, new_email, old_email);
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Data update");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    public void update_iin(Connection conn, String table_name, String new_iin, String old_iin) {
+        Statement statement;
+        try {
+            String query = String.format("update %s set iin='%s' where iin = '%s'", table_name, new_iin, old_iin);
             statement = conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Data update");

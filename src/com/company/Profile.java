@@ -31,15 +31,23 @@ public class Profile {
 
     public static void changeData(String email, String password){
         System.out.println("1.e-mail");
-        System.out.println("2.uin");
+        System.out.println("2.iin");
         System.out.println("3.password");
         System.out.println("4.Cancel");
         int choice= scan.nextInt();
         if (choice==1){
-            //изменения в базе данных
+            System.out.print("Your current email:");
+            String old = scan.next();
+            System.out.print("Your new email:");
+            String _new = scan.next();
+            db.update_email(conn, "consumer", _new, old);
         }
         else if (choice==2){
-            //изменения в базе данных
+            System.out.print("Your current iin:");
+            String old = scan.next();
+            System.out.print("Your new iin:");
+            String _new = scan.next();
+            db.update_email(conn, "consumer", _new, old);
         }
         else if (choice==3){
             //изменения в базе данных
