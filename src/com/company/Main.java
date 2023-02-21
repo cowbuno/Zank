@@ -17,14 +17,16 @@ public class Main {
         Connection conn = db_ticket.connect_to_db_ticket("postgres","postgres","12345678");
 
         for(int i = 1; i <= 6; i++){
-            String table_name = Integer.toString(i);
-            db_ticket.create_table_ticket(conn, table_name);
-            db_ticket.insert_row(conn, table_name, "07:15", "09:15", 40, 25000);
-            db_ticket.insert_row(conn, table_name, "14:20", "16:00", 25, 24000);
-            db_ticket.insert_row(conn, table_name, "21:20", "22:50", 35, 20000);
-            db_ticket.insert_row(conn, table_name, "17:15", "19:00", 15, 24000);
-            db_ticket.insert_row(conn, table_name, "09:05", "10:50", 10, 24000);
+            db_ticket.create_table_ticket(conn, "table" + i);
+            db_ticket.insert_row(conn, "table" + i, "07:15", "09:15", 40, 25000);
+            db_ticket.insert_row(conn, "table" + i, "14:20", "16:00", 25, 24000);
+            db_ticket.insert_row(conn, "table" + i, "21:20", "22:50", 35, 20000);
+            db_ticket.insert_row(conn, "table" + i, "17:15", "19:00", 15, 24000);
+            db_ticket.insert_row(conn, "table" + i, "09:05", "10:50", 10, 24000);
         }
+
+
+
 
 
 

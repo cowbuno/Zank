@@ -23,7 +23,7 @@ public class DbTicket {
     static void create_table_ticket(Connection conn, String table_name) {
         Statement statement;
         try {
-            String query = "create table " + table_name + "(empid SERIAL, departure_time varchar(20), arrival_time varchar(20), place integer (20), price integer(20));";
+            String query = "create table " + table_name  + "(empid SERIAL, departure_time varchar(20), arrival_time varchar(20), place integer, price integer, primary key(empid));";
             statement = conn.createStatement();
             statement.executeUpdate(query);
             System.out.println("Table created");
