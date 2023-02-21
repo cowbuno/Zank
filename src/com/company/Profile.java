@@ -50,7 +50,7 @@ public class Profile {
             db.update_email(conn, "consumer", _new, old);
         }
         else if (choice==3){
-            //изменения в базе данных
+
         }
         else if (choice==4){
             profile_page(email, password);
