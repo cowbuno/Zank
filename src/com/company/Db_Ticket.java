@@ -2,7 +2,7 @@ package com.company;
 
 import java.sql.*;
 
-public class DbTicket {
+public class Db_Ticket {
 
     public Connection connect_to_db_ticket(String dbname, String user, String pass) {
         Connection conn = null;
@@ -53,8 +53,8 @@ public class DbTicket {
             while (rs.next()) {
                 System.out.print(rs.getString("empid") + ". ");
                 System.out.print(rs.getString("departure_time") + "-");
-                System.out.print(rs.getString("arrival_time") + " | ");
-                System.out.print(rs.getString("place") + " | ");
+                System.out.print(rs.getString("arrival_time") + " |    ");
+                System.out.print(rs.getString("place") + "    | ");
                 System.out.println(rs.getString("price") + " kzt");
             }
 
@@ -63,26 +63,7 @@ public class DbTicket {
         }
     }
 
-    public static void showInfo(Connection conn, String table_name, int empid) {
-        Statement statement;
-        ResultSet rs;
-        try {
-            String query = String.format("select * from %s where empid = '%s'", table_name, empid);
-            statement = conn.createStatement();
-            rs = statement.executeQuery(query);
-            while (rs.next()) {
-                System.out.print(rs.getString("departure_time") + "-");
-                System.out.print(rs.getString("arrival_time") + " | ");
-                System.out.print(rs.getString("place") + " | ");
-                System.out.println(rs.getString("price") + " kzt");
-            }
 
-            reduce_place(conn,table_name, empid);
-
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-    }
 
     public static void reduce_place(Connection conn, String table_name, int empid) {
         Statement statement;

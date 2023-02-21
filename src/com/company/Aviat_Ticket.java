@@ -3,9 +3,9 @@ package com.company;
 import java.sql.Connection;
 import java.util.Scanner;
 
-public class aviaTickets {
+public class Aviat_Ticket {
     static Scanner scan = new Scanner(System.in);
-    static DbTicket db = new DbTicket();
+    static Db_Ticket db = new Db_Ticket();
     static Connection conn=db.connect_to_db_ticket("postgres","postgres","12345678");
 
     public static void chooseCities(){
@@ -15,18 +15,18 @@ public class aviaTickets {
         System.out.print("Choose the city:");
         System.out.println("1.Astana - Almaty ");
         System.out.println("2.Astana - Shymkent");
-        System.out.println("3.Almaty  - Shymkent");
+        System.out.println("3.Almaty  - Shymkent")  ;
         System.out.println("4.Almaty - Astana ");
         System.out.println("5.Shymkent - Almaty");
         System.out.println("6.Shymkent - Astana");
 
         int number = scan.nextInt();
 
+        choose_Time(number);
 
     }
 
     public static void choose_Time(int _case) {
-        String table_name = Integer.toString(_case);
 
         if (_case == 1) {
             System.out.println("Astana - Almaty");
@@ -47,8 +47,9 @@ public class aviaTickets {
             System.out.println("Shymkent - Astana");
 
         }
+
         System.out.println("departure - arrival | place | price");
-        db.read_time(conn, table_name);
+        db.read_time(conn, "table" + _case);
         int empid = scan.nextInt();
         buying_Ticket(empid);
     }

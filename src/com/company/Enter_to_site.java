@@ -3,7 +3,7 @@ package com.company;
 import java.sql.Connection;
 import java.util.Scanner;
 
-public class enterToSite {
+public class Enter_to_site {
     static Scanner scan = new Scanner(System.in);
     static DbFunction db = new DbFunction();
     static Connection conn=db.connect_to_db("postgres","postgres","12345678");
@@ -26,24 +26,7 @@ public class enterToSite {
         System.out.println("Successful registration");
     }
 
-    public static void login() {
-        Index ind=new Index();
-        System.out.print("\nLOGIN FORM:\n");
-        System.out.print("Your email:");
-        String email = scan.next();
-        System.out.print("Enter your password:");
-        String password = scan.next();
-        if(db.checkAccount(conn, "consumer", email, password) == true){
-            System.out.println("Successful log in ");
-            ind.indexPage(email,password);
-
-        } else {
-            againLoginig();
-        }
-    }
-
-// короче это класс, когда неправильный пароль и email  был введен, тогда и вызывается
-    public static void againLoginig(){
+    public static void again_loginig(){
         Scanner scan = new Scanner(System.in);
 
         System.out.println("Password or Email is wrong");
@@ -55,6 +38,22 @@ public class enterToSite {
         switch (number) {
             case 1 : register();
             case 2 : login();
+        }
+    }
+
+    public static void login() {
+        Index ind=new Index();
+        System.out.print("\nLOGIN FORM:\n");
+        System.out.print("Your email:");
+        String email = scan.next();
+        System.out.print("Enter your password:");
+        String password = scan.next();
+        if(db.checkAccount(conn, "consumer", email, password) == true){
+            System.out.println("Successful log in ");
+            ind.index_Page(email,password);
+
+        } else {
+            again_loginig();
         }
     }
 }
