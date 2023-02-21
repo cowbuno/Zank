@@ -1,12 +1,13 @@
 package com.company;
 
+import com.company.database.DbFunctions;
 import java.sql.Connection;
 import java.util.Scanner;
 
 public class Enter_to_site {
     static Scanner scan = new Scanner(System.in);
-    static DbFunction db = new DbFunction();
-    static Connection conn=db.connect_to_db("postgres","postgres","12345678");
+    static DbFunctions db = new DbFunctions();
+    static Connection conn=db.connectToDb("postgres","postgres","12345678");
 
     public static void register(){
         System.out.print("\nREGISTRATION FORM:\n");
@@ -22,7 +23,7 @@ public class Enter_to_site {
         String password = scan.next();
 
 
-        DbFunction.insert_row(conn,"consumer", name,surname, email, IIN ,password);
+        db.insertRow(conn,"consumer", name,surname, email, IIN ,password);
         System.out.println("Successful registration");
     }
 

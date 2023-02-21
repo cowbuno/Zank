@@ -1,14 +1,17 @@
 package com.company;
 
+import com.company.database.DbFunctions;
+import com.company.ticket.Avia_Ticket;
+
 import java.sql.Connection;
 import java.util.Scanner;
 
 public class Index {
     static Scanner scan = new Scanner(System.in);
-    static DbFunction db = new DbFunction();
-    static Connection conn=db.connect_to_db("postgres","postgres","12345678");
+    static DbFunctions db = new DbFunctions();
+    static Connection conn=db.connectToDb("postgres","postgres","12345678");
     static Profile profile = new Profile();
-    static Aviat_Ticket avia = new Aviat_Ticket();
+    static Avia_Ticket avia = new Avia_Ticket();
 
 
     public static void index_Page(String email, String password){
@@ -23,7 +26,7 @@ public class Index {
             profile.profile_page(email, password);
         }
         else if(choose==2){
-            Aviat_Ticket.chooseCities();
+            Avia_Ticket.chooseCities();
         }
         else if(choose==3){
             System.out.println("See you soon!");

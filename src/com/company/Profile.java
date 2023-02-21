@@ -1,12 +1,14 @@
 package com.company;
 
+import com.company.database.DbFunctions;
+
 import java.sql.Connection;
 import java.util.Scanner;
 
 public class Profile {
     static Scanner scan = new Scanner(System.in);
-    static DbFunction db = new DbFunction();
-    static Connection conn = db.connect_to_db("postgres", "postgres", "12345678");
+    static DbFunctions db = new DbFunctions();
+    static Connection conn = db.connectToDb("postgres", "postgres", "12345678");
     static Index ind = new Index();
 
 
@@ -48,10 +50,16 @@ public class Profile {
             String old = scan.next();
             System.out.print("Your new iin:");
             String _new = scan.next();
-            db.update_email(conn, "consumer", _new, old);
+            db.update_iin(conn, "consumer", _new, old);
+            profile_page(email,password);
         }
         else if (choice==3){
-
+            System.out.print("Your current password:");
+            String old = scan.next();
+            System.out.print("Your new password:");
+            String _new = scan.next();
+            db.update_password(conn, "consumer", _new, old);
+            profile_page(email,_new);
         }
         else if (choice==4){
             profile_page(email, password);

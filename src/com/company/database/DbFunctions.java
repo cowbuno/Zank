@@ -1,26 +1,12 @@
-package com.company;
+package com.company.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class DbFunction {
-    public Connection connect_to_db(String dbname, String user, String pass) {
-        Connection conn = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + dbname, user, pass);
-            if (conn != null) {
-                System.out.println("Connection Established");
-            } else {
-                System.out.println("Connection Failed");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-        return conn;
-    }
+public class DbFunctions extends DbConnection implements IDatabase {
 
+    @Override
     public void createTable(Connection conn, String table_name) {
         Statement statement;
         try {
@@ -32,8 +18,8 @@ public class DbFunction {
             System.out.println(e);
         }
     }
-
-    public static void insert_row(Connection conn, String table_name, String name, String surname, String email, String IIN, String password) {
+    @Override
+    public void insertRow(Connection conn, String table_name, String name, String surname, String email, String IIN, String password) {
         Statement statement;
         try {
             String query = String.format("insert into %s(name, surname, email, IIN, password) values('%s','%s','%s','%s','%s');", table_name, name, surname, email, IIN, password);
@@ -44,8 +30,8 @@ public class DbFunction {
         }
     }
 
-
-    public static boolean checkAccount(Connection conn, String table_name, String email, String password) {
+    @Override
+    public boolean checkAccount(Connection conn, String table_name, String email, String password) {
         try {
             String query = String.format("select * from %s where email='%s' and password='%s'", table_name, email, password);
             Statement statement = conn.createStatement();
@@ -60,7 +46,8 @@ public class DbFunction {
         return false;
     }
 
-    public static void user_info(Connection conn, String table_name, String email,  String password) {
+    @Override
+    public void user_info(Connection conn, String table_name, String email,  String password) {
         Statement statement;
         ResultSet rs;
         try {
@@ -77,7 +64,7 @@ public class DbFunction {
             System.out.println(e);
         }
     }
-
+    @Override
     public void update_email(Connection conn, String table_name, String new_email, String old_email) {
         Statement statement;
         try {
@@ -89,6 +76,7 @@ public class DbFunction {
             System.out.println(e);
         }
     }
+    @Override
     public void update_iin(Connection conn, String table_name, String new_iin, String old_iin) {
         Statement statement;
         try {
@@ -100,6 +88,16 @@ public class DbFunction {
             System.out.println(e);
         }
     }
-
-
+    @Override
+    public void update_password(Connection conn, String table_name, String new_password, String old_password) {
+        Statement statement;
+        try {
+            String query = String.format("update %s set password='%s' where password = '%s'", table_name, new_password, old_password);
+            statement = conn.createStatement();
+            statement.executeUpdate(query);
+            System.out.println("Data updated");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }

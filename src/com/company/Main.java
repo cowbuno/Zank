@@ -1,8 +1,9 @@
 package com.company;
 
+import com.company.database.Db_Ticket;
+
 import java.sql.Connection;
 import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class Main {
         Enter_to_site enter = new Enter_to_site();
 
         Db_Ticket db_ticket = new Db_Ticket();
-        Connection conn = db_ticket.connect_to_db_ticket("postgres","postgres","12345678");
+        Connection conn = db_ticket.connectToDb("postgres","postgres","12345678");
 
 //        for(int i = 1; i <= 6; i++){
 //            db_ticket.create_table_ticket(conn, "table" + i);

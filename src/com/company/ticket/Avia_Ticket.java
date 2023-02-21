@@ -1,12 +1,15 @@
-package com.company;
+package com.company.ticket;
+
+import com.company.Index;
+import com.company.database.Db_Ticket;
 
 import java.sql.Connection;
 import java.util.Scanner;
 
-public class Aviat_Ticket {
+public class Avia_Ticket {
     static Scanner scan = new Scanner(System.in);
     static Db_Ticket db = new Db_Ticket();
-    static Connection conn=db.connect_to_db_ticket("postgres","postgres","12345678");
+    static Connection conn=db.connectToDb("postgres","postgres","12345678");
     static Index ind = new Index();
 
     public static void chooseCities(){
