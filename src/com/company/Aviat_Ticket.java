@@ -7,6 +7,7 @@ public class Aviat_Ticket {
     static Scanner scan = new Scanner(System.in);
     static Db_Ticket db = new Db_Ticket();
     static Connection conn=db.connect_to_db_ticket("postgres","postgres","12345678");
+    static Index ind = new Index();
 
     public static void chooseCities(){
         Scanner scan = new Scanner(System.in);
@@ -63,7 +64,7 @@ public class Aviat_Ticket {
         System.out.print("Please enter card's cvv: ");
         String card_cvv = scan.next();
         System.out.println("You succesfully buy a ticket");
-
+//        ind.index_Page();
     }
 
 }

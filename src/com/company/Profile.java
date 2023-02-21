@@ -41,6 +41,7 @@ public class Profile {
             System.out.print("Your new email:");
             String _new = scan.next();
             db.update_email(conn, "consumer", _new, old);
+            profile_page(_new,password);
         }
         else if (choice==2){
             System.out.print("Your current iin:");

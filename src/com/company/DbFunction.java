@@ -84,7 +84,7 @@ public class DbFunction {
             String query = String.format("update %s set email='%s' where email = '%s'", table_name, new_email, old_email);
             statement = conn.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Data update");
+            System.out.println("Data updated");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -95,7 +95,7 @@ public class DbFunction {
             String query = String.format("update %s set iin='%s' where iin = '%s'", table_name, new_iin, old_iin);
             statement = conn.createStatement();
             statement.executeUpdate(query);
-            System.out.println("Data update");
+            System.out.println("Data updated");
         } catch (Exception e) {
             System.out.println(e);
         }
