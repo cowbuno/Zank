@@ -60,7 +60,7 @@ public class DbFunction {
         return false;
     }
 
-    public static void userInfo(Connection conn, String table_name, String email,  String password) {
+    public static void user_info(Connection conn, String table_name, String email,  String password) {
         Statement statement;
         ResultSet rs;
         try {

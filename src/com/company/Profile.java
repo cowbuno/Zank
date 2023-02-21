@@ -10,9 +10,9 @@ public class Profile {
     static Index ind = new Index();
 
 
-    public static void profilePage(String email, String password) {
+    public static void profile_page(String email, String password) {
         System.out.println("Your Data:");
-        db.userInfo(conn, "consumer", email, password);
+        db.user_info(conn, "consumer", email, password);
         System.out.println("Do you want to change your data?");
         System.out.println("1. Yes");
         System.out.println("2. No");
@@ -24,7 +24,7 @@ public class Profile {
         }
         else if (choose == 2){
             System.out.println("Your data hasn't changed");
-            ind.indexPage(email, password);
+            ind.index_Page(email, password);
 
         }
     }
@@ -45,7 +45,7 @@ public class Profile {
             //изменения в базе данных
         }
         else if (choice==4){
-            profilePage(email, password);
+            profile_page(email, password);
         }
     }
 }

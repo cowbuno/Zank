@@ -8,10 +8,10 @@ public class Index {
     static DbFunction db = new DbFunction();
     static Connection conn=db.connect_to_db("postgres","postgres","12345678");
     static Profile profile = new Profile();
-    static aviaTickets avia = new aviaTickets();
+    static Aviat_Ticket avia = new Aviat_Ticket();
 
 
-    public static void indexPage(String email, String password){
+    public static void index_Page(String email, String password){
 
         System.out.println("Choose an option:");
         System.out.println("1.Profile");
@@ -20,17 +20,17 @@ public class Index {
 
         int choose = scan.nextInt();
         if (choose==1){
-            profile.profilePage(email, password);
+            profile.profile_page(email, password);
         }
         else if(choose==2){
-            aviaTickets.chooseCities();
+            Aviat_Ticket.chooseCities();
         }
         else if(choose==3){
             System.out.println("See you soon!");
         }
         else{
             System.out.println("Please Enter again");
-            indexPage(email, password);
+            index_Page(email, password);
         }
 
     }
